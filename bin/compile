@@ -10,7 +10,7 @@ $stdout.sync = true
 
 BUILD_DIR = ARGV[0]
 CACHE_DIR = ARGV[1]
-ARCHIVE_NAME = "freetds-patched"
+ARCHIVE_NAME = "freetds-1.1.17"
 INSTALL_DIR = "#{BUILD_DIR}/vendor/freetds"
 
 puts "-----> FreeTDS building in #{BUILD_DIR}"
@@ -37,6 +37,7 @@ puts `rm -rf #{BUILD_DIR}/#{TARGET_DIR}`
 
 # TODO: Understand why this step is necessary
 puts "-----> Copying FreeTDS into /app/vendor/freetds"
+puts `mkdir -p /app/vendor`
 puts `cp -r #{BUILD_DIR}/vendor/freetds /app/vendor/freetds`
 
 puts "-----> Writing FreeTDS configuration for subsequent buildpack"
